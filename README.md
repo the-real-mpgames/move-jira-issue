@@ -18,7 +18,7 @@ JIRA_TRANSITION_ID: transition ID of your issue https://docs.atlassian.com/softw
 How to use:
 
       - name: Move jira issue 
-        uses: the-real-mpgames/move-jira-issue@v3
+        uses: the-real-mpgames/move-jira-issue@v1
         with:
           jira-action: move_issue_when_pull_request_closed
         env:
