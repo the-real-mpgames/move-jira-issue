@@ -1,0 +1,12 @@
+name: 'Move Trello card when PR closed'
+
+description: 'This action move Trello card to the another trello list when PR closed'
+
+inputs:
+  trello-action:
+    description: 'Action to do'
+    required: true
+
+runs:
+  using: 'node12'
+  main: 'index.js'

@@ -1,0 +1,29 @@
+{
+  "name": "first-action",
+  "version": "1.0.0",
+  "description": "This action move Trello card to the another trello list when PR closed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metalsong/first-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/metalsong/first-action/issues"
+  },
+  "homepage": "https://github.com/metalsong/first-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0",
+    "array-unique": "^0.3.2",
+    "match-all": "^1.2.5",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8"
+  },
+  "devDependencies": {}
+}
