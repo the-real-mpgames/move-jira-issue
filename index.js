@@ -15,7 +15,7 @@ try {
     const jiraUrl = process.env['JIRA_URL']
     const action = core.getInput('jira-action');
     switch (action) {
-        case 'move_card_when_pull_request_opened':
+        case 'move_issue_when_pull_request_opened':
             moveIssueWhenPullRequestOpen(jiraEmail, jiraToken, jiraUrl);
             break;
         case 'move_issue_when_pull_request_closed':
