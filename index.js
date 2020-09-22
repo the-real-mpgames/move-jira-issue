@@ -27,11 +27,20 @@ function moveIssueWhenPullRequestClose(jiraEmail, jiraToken, jiraUrl) {
     const bigstring = title + littlestring + body;
     const start = async () => {
         const listOfIds = unique( matchAll(bigstring,  /(LH\-[0-9]{1,5})/g).toArray());
-        if (listOfIds.length == 0) return;
+        if (listOfIds.length == 0) {
+            console.log("There is no JIRA issue keys in PR title and Body")
+            return;
+        }
+        const pattern = /(wip:)/gi;
+        if (pattern.test(title) == true) {
+            console.log("found WIP: flag in PR title, issues won't be moved to review")
+            return;
+        }
+        console.log("Found JIRA issue keys: " + listOfIds)
         for (item of listOfIds) {
             moveIssue(jiraEmail, jiraToken, jiraUrl, item, transitionId, );
             addBuildComment(jiraEmail, jiraToken, jiraUrl, item, buildNumber);
-        }  
+        }
       }
       start();     
 }
