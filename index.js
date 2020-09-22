@@ -4,7 +4,6 @@ const request = require('request-promise-native');
 const matchAll = require("match-all");
 const unique = require('array-unique');
 const transitionId = process.env['JIRA_TRANSITION_ID'];
-const buildNumber = process.env['GITHUB_RUN_NUMBER'];
 const body = github.context.payload.pull_request.body
 const title = github.context.payload.pull_request.title
 const littlestring = ' ';
@@ -48,6 +47,7 @@ function moveIssueWhenPullRequestOpen(jiraEmail, jiraToken, jiraUrl) {
 }
 
 function moveIssueWhenPullRequestClose(jiraEmail, jiraToken, jiraUrl) {
+    const buildNumber = process.env['GITHUB_RUN_NUMBER'];
     const start = async () => {
         const listOfIds = unique( matchAll(bigstring,  /(LH\-[0-9]{1,5})/g).toArray());
         if (listOfIds.length == 0) {
