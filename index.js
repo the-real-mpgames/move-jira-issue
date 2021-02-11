@@ -33,7 +33,7 @@ function moveIssueWhenPullRequestOpen(jiraEmail, jiraToken, jiraUrl) {
             console.log("There is no JIRA issue keys in PR title and Body")
             return;
         }
-        const pattern = /(wip:)/gi;
+        const pattern = /(wip)/gi;
         if (pattern.test(title) == true) {
             console.log("found WIP: flag in PR title, issues won't be moved to review")
             return;
