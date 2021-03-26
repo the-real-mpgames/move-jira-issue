@@ -31,6 +31,8 @@ function moveIssueWhenPullRequestOpen(jiraEmail, jiraToken, jiraUrl) {
         const listOfIds = unique( matchAll(bigstring,  /(LH\-[0-9]{1,5})/g).toArray());
         if (listOfIds.length == 0) {
             console.log("There is no JIRA issue keys in PR title and Body")
+            console.log("PR title:" + title)
+            console.log("PR body" + body)
             return;
         }
         const pattern = /(wip)/gi;
@@ -52,6 +54,8 @@ function moveIssueWhenPullRequestClose(jiraEmail, jiraToken, jiraUrl) {
         const listOfIds = unique( matchAll(bigstring,  /(LH\-[0-9]{1,5})/g).toArray());
         if (listOfIds.length == 0) {
             console.log("There is no JIRA issue keys in PR title and Body")
+            console.log("PR title:" + title)
+            console.log("PR body" + body)
             return;
         }
         const pattern = /(wip)/gi;
